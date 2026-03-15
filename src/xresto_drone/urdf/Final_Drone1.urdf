@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<robot name="Final_Drone">
+
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.031328 -0.0071153 -0.051516" rpy="0 0 0" />
+      <mass value="0.75775" />
+      <inertia
+        ixx="0.00039159" ixy="1.4124E-06" ixz="-5.7668E-07"
+        iyy="0.00087671" iyz="-8.7619E-08" izz="0.00099537" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.08" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://xresto_drone/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.03" rpy="0 0 0" />
+      <geometry>
+        <box size="0.3 0.3 0.16" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="prop1">
+    <inertial>
+      <origin xyz="0.0089965 0.0012089 0.027957" rpy="0 0 0" />
+      <mass value="0.023983" />
+      <inertia
+        ixx="1.0527E-06" ixy="2.2757E-12" ixz="5.1184E-09"
+        iyy="0.00010448" iyz="8.9019E-14" izz="0.00010513" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://xresto_drone/meshes/prop1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="prop1_joint" type="continuous">
+    <origin xyz="-0.17625 -0.20944 0.033767" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="prop1" />
+    <axis xyz="0.035355 0.035355 0.99875" />
+  </joint>
+
+  <link name="prop2">
+    <inertial>
+      <origin xyz="0.00091731 0.0017103 0.03332" rpy="0 0 0" />
+      <mass value="0.023983" />
+      <inertia
+        ixx="1.0527E-06" ixy="-1.5805E-13" ixz="5.1194E-09"
+        iyy="0.00010448" iyz="-9.6134E-14" izz="0.00010513" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://xresto_drone/meshes/prop2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="prop2_joint" type="continuous">
+    <origin xyz="-0.16817 0.19585 0.028404" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="prop2" />
+    <axis xyz="0.035355 0.035355 0.99875" />
+  </joint>
+
+  <link name="prop3">
+    <inertial>
+      <origin xyz="-0.00051529 -0.00078627 0.0087396" rpy="0 0 0" />
+      <mass value="0.023983" />
+      <inertia
+        ixx="1.0527E-06" ixy="-1.9102E-13" ixz="5.1195E-09"
+        iyy="0.00010448" iyz="-8.4176E-14" izz="0.00010513" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://xresto_drone/meshes/prop3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="prop3_joint" type="continuous">
+    <origin xyz="0.23698 0.19627 0.052984" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="prop3" />
+    <axis xyz="-0.035355 -0.035355 0.99875" />
+  </joint>
+
+  <link name="prop4">
+    <inertial>
+      <origin xyz="0.008506 0.00029722 0.028642" rpy="0 0 0" />
+      <mass value="0.023983" />
+      <inertia
+        ixx="1.0527E-06" ixy="1.0563E-13" ixz="5.1193E-09"
+        iyy="0.00010448" iyz="-9.4332E-14" izz="0.00010513" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://xresto_drone/meshes/prop4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="prop4_joint" type="continuous">
+    <origin xyz="0.22702 -0.2087 0.033094" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="prop4" />
+    <axis xyz="-0.035355 0.035355 0.99875" />
+  </joint>
+
+  <link name="camera_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.05" />
+      <inertia
+        ixx="1e-04" ixy="0" ixz="0"
+        iyy="1e-04" iyz="0" izz="1e-04" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://xresto_drone/meshes/camera_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.05 0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0 0 -0.08" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="camera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <!-- Bottom Camera Link for Landing Pad Detection -->
+  <link name="bottom_camera_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.03" />
+      <inertia
+        ixx="1e-05" ixy="0" ixz="0"
+        iyy="1e-05" iyz="0" izz="1e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.03 0.03 0.03" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.03 0.03 0.03" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="bottom_camera_joint" type="fixed">
+    <origin xyz="0 0 -0.15" rpy="1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="bottom_camera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="prop1">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="prop2">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="prop3">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="prop4">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="camera_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <sensor name="drone_imu" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+        <ros>
+          <namespace>/drone</namespace>
+          <remapping>~/out:=imu</remapping>
+        </ros>
+      </plugin>
+    </sensor>
+
+    <!-- Altitude Sensor (LiDAR) - Mounted below drone pointing downward -->
+    <sensor name="altitude_sensor" type="ray">
+      <pose>0 0 -0.15 0 1.5708 0</pose>
+      <always_on>true</always_on>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan><horizontal><samples>1</samples><resolution>1</resolution><min_angle>0</min_angle><max_angle>0</max_angle></horizontal></scan>
+        <range><min>0.1</min><max>50.0</max><resolution>0.01</resolution></range>
+      </ray>
+      <plugin name="altitude_plugin" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <namespace>/drone</namespace>
+          <remapping>~/out:=altitude</remapping>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="camera_link">
+    <!-- RGB Camera -->
+    <sensor type="camera" name="front_camera">
+      <always_on>true</always_on>
+      <update_rate>30.0</update_rate>
+      <camera>
+        <horizontal_fov>1.5</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip><near>0.1</near><far>20.0</far></clip>
+      </camera>
+      <plugin name="camera_plugin" filename="libgazebo_ros_camera.so">
+        <ros>
+          <namespace>/drone</namespace>
+        </ros>
+        <camera_name>front_camera</camera_name>
+        <frame_name>camera_link</frame_name>
+      </plugin>
+    </sensor>
+
+    <!-- Depth Camera -->
+    <sensor type="depth" name="front_depth_camera">
+      <always_on>true</always_on>
+      <update_rate>30.0</update_rate>
+      <camera>
+        <horizontal_fov>1.5</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip><near>0.1</near><far>20.0</far></clip>
+      </camera>
+      <plugin name="depth_camera_plugin" filename="libgazebo_ros_camera.so">
+        <ros>
+          <namespace>/drone</namespace>
+        </ros>
+        <camera_name>front_camera</camera_name>
+        <frame_name>camera_link</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Bottom Camera for Landing Pad Detection -->
+  <gazebo reference="bottom_camera_link">
+    <material>Gazebo/Black</material>
+    <sensor type="camera" name="bottom_camera">
+      <always_on>true</always_on>
+      <update_rate>30.0</update_rate>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip><near>0.05</near><far>10.0</far></clip>
+      </camera>
+      <plugin name="bottom_camera_plugin" filename="libgazebo_ros_camera.so">
+        <ros>
+          <namespace>/drone</namespace>
+          <remapping>image_raw:=bottom_camera/image_raw</remapping>
+          <remapping>camera_info:=bottom_camera/camera_info</remapping>
+        </ros>
+        <camera_name>bottom_camera</camera_name>
+        <frame_name>bottom_camera_link</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="gazebo_ros_force" filename="libgazebo_ros_force.so">
+      <ros>
+        <namespace>/drone</namespace>
+        <remapping>gazebo_ros_force:=cmd_force</remapping>
+      </ros>
+      <link_name>base_link</link_name>
+      <force_frame>link</force_frame> 
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="drone_odometry" filename="libgazebo_ros_p3d.so">
+      <ros>
+        <namespace>/drone</namespace>
+        <remapping>odom:=odom</remapping>
+      </ros>
+      <body_name>base_link</body_name>
+      <topic_name>odom</topic_name>
+      <update_rate>50.0</update_rate>
+    </plugin>
+  </gazebo>
+
+</robot>
+
+

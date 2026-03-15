@@ -1,0 +1,380 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="gate_course">
+    
+    <!-- Physics engine -->
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <gravity>0 0 -9.81</gravity>
+    </physics>
+    
+    <!-- Lighting -->
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+    
+    <!-- Ground plane -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Gate 0 - Starting gate (centered at origin horizontally) -->
+    <model name="gate_0">
+      <static>true</static>
+      <link name="base_link">
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <mass>10.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <iyy>1.0</iyy>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+
+        <!-- Vertical supports (poles) -->
+        <collision name="left_pole_collision">
+          <pose>0 -0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="left_pole_visual">
+          <pose>0 -0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="right_pole_collision">
+          <pose>0 0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="right_pole_visual">
+          <pose>0 0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Top bar -->
+        <collision name="top_bar_collision">
+          <pose>0 0 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 1.1 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="top_bar_visual">
+          <pose>0 0 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 1.1 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Gate 1 - Rotated 90 degrees, positioned ahead -->
+    <model name="gate_1">
+      <static>true</static>
+      <pose>5 0 0 0 0 1.5708</pose>
+      <link name="base_link">
+        <inertial>
+          <mass>10.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <iyy>1.0</iyy>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+
+        <!-- Vertical supports -->
+        <collision name="left_pole_collision">
+          <pose>0 -0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="left_pole_visual">
+          <pose>0 -0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="right_pole_collision">
+          <pose>0 0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="right_pole_visual">
+          <pose>0 0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Top bar -->
+        <collision name="top_bar_collision">
+          <pose>0 0 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 1.1 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="top_bar_visual">
+          <pose>0 0 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 1.1 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Gate 2 - Tilted, positioned to the right -->
+    <model name="gate_2">
+      <static>true</static>
+      <pose>8 3 0 0 0.2 0</pose>
+      <link name="base_link">
+        <inertial>
+          <mass>10.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <iyy>1.0</iyy>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+
+        <!-- Vertical supports -->
+        <collision name="left_pole_collision">
+          <pose>0 -0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="left_pole_visual">
+          <pose>0 -0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="right_pole_collision">
+          <pose>0 0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="right_pole_visual">
+          <pose>0 0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Top bar -->
+        <collision name="top_bar_collision">
+          <pose>0 0 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 1.1 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="top_bar_visual">
+          <pose>0 0 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 1.1 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Gate 3 - Challenge gate at the end -->
+    <model name="gate_3">
+      <static>true</static>
+      <pose>10 5 0 0.2 0 -1.5708</pose>
+      <link name="base_link">
+        <inertial>
+          <mass>10.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <iyy>1.0</iyy>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+
+        <!-- Vertical supports -->
+        <collision name="left_pole_collision">
+          <pose>0 -0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="left_pole_visual">
+          <pose>0 -0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="right_pole_collision">
+          <pose>0 0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="right_pole_visual">
+          <pose>0 0.5 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Top bar -->
+        <collision name="top_bar_collision">
+          <pose>0 0 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 1.1 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="top_bar_visual">
+          <pose>0 0 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 1.1 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
