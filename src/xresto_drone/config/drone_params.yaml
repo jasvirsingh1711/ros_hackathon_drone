@@ -1,0 +1,105 @@
+# Drone Control Configuration
+# IIT Mandi Tech Fest 2026 ROS Hackathon
+
+# Physical Parameters
+drone:
+  mass: 0.75775              # kg
+  max_thrust_per_motor: 3.0  # N
+  hover_thrust: 1.962        # N (mg for hover)
+  max_velocity_xy: 1.5       # m/s
+  max_velocity_z: 1.0        # m/s
+  max_angular_velocity: 2.0  # rad/s
+
+# Control Parameters
+control:
+  # Altitude PID gains
+  altitude_kp: 3.0
+  altitude_ki: 0.5
+  altitude_kd: 2.0
+  altitude_target: 0.5      # m
+  altitude_integral_limit: 3.0
+  altitude_derivative_limit: 1.0
+  
+  # Attitude PID gains
+  attitude_kp: 4.0
+  attitude_ki: 0.5
+  attitude_kd: 1.2
+  attitude_integral_limit: 2.0
+  
+  # Velocity damping
+  velocity_decay: 0.98
+  velocity_damp_gain: 0.4
+
+# Perception Parameters
+perception:
+  # Obstacle detection (replacing gate detection)
+  obstacle_detection_enabled: true
+  obstacle_confidence_threshold: 0.7
+  
+  # Depth sensing for obstacle avoidance
+  depth_max_range: 20.0      # m
+  depth_min_range: 0.1       # m
+  collision_distance: 1.0    # m - start collision warning
+  obstacle_brake_distance: 0.5  # m - emergency brake
+  
+  # Real world environment detection
+  floor_detection_enabled: true
+  ceiling_height: 8.0        # m - arena ceiling height
+  min_safe_altitude: 0.5     # m - minimum height above ground
+
+# Navigation Parameters
+navigation:
+  # Waypoint-based navigation (adapted for real world)
+  target_altitude: 1.0            # m - operating altitude above obstacles
+  waypoint_tolerance: 0.5         # m - distance to consider waypoint reached
+  
+  # Real world navigation (maze/obstacle course)
+  # Gate sequence replaced with waypoint-based navigation
+  # Navigate through landing pad -> various waypoints -> landing pad
+  mission_waypoints:
+    - {x: 0.0, y: 0.0, z: 1.5}    # Starting position (landing pad)
+    - {x: 5.0, y: 5.0, z: 2.0}    # Waypoint 1
+    - {x: 15.0, y: 0.0, z: 2.0}   # Waypoint 2 (near center)
+    - {x: 25.0, y: 5.0, z: 2.0}   # Waypoint 3
+    - {x: 30.0, y: -5.0, z: 2.0}  # Waypoint 4
+    - {x: 0.0, y: 0.0, z: 1.5}    # Return to landing pad
+  
+  # Search behavior (for initial launching phase)
+  search_rotation_speed: 0.3      # rad/s
+  search_height: 2.0              # m
+  
+  # State machine timeouts (seconds)
+  waypoint_timeout: 30.0
+  navigation_timeout: 120.0
+
+# Safety Parameters
+safety:
+  emergency_brake_enabled: true
+  collision_avoidance_enabled: true
+  max_tilt_angle: 0.4            # radians (23 degrees) - more conservative
+  max_descent_rate: 1.5          # m/s - slower descent
+  min_battery_voltage: 10.0      # V (if using real battery)
+  
+  # Enhanced obstacle detection for complex environment
+  min_obstacle_distance: 0.05    # m - minimum clearance from obstacles (5cm for tight gates)
+  warning_distance: 1.5          # m - start planning to avoid
+  collision_brake_distance: 0.5  # m - emergency brake threshold
+  
+# Simulation Parameters (Gazebo specific)
+simulation:
+  physics_engine: ode
+  update_rate: 1000              # Hz
+  gravity: 9.81                  # m/s^2
+  
+  # Sensor simulation parameters
+  camera_fps: 30
+  camera_width: 640
+  camera_height: 480
+  camera_fov: 1.5                # radians
+  
+  imu_update_rate: 100           # Hz
+  lidar_update_rate: 40          # Hz
+  
+  # Gazebo plugins
+  force_plugin_enabled: true
+  odometry_plugin_enabled: true

@@ -8,7 +8,7 @@ This package implements a fully autonomous drone system capable of detecting and
 
 **Watch the system in action:**
 
-![demo](<Screenshot 2026-03-15 215817.png>)(https://youtu.be/iXGplhAUvkc?si=6C4ouuv3gUruhW5p)
+![demo](ss.png)(https://youtu.be/iXGplhAUvkc?si=6C4ouuv3gUruhW5p)
 
 The video demonstrates:
 - Autonomous system startup (single command)
