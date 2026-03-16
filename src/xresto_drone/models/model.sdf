@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="aerial_gate">
+    <static>true</static>
+    <link name="left_post">
+      <pose>0 -1.05 0 0 0 0</pose>
+      <visual name="visual">
+        <geometry>
+          <box><size>0.1 0.1 2.0</size></box>
+        </geometry>
+        <material>
+          <ambient>1.0 0.35 0.0 1</ambient>
+          <diffuse>1.0 0.35 0.0 1</diffuse>
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box><size>0.1 0.1 2.0</size></box>
+        </geometry>
+      </collision>
+    </link>
+    <link name="right_post">
+      <pose>0 1.05 0 0 0 0</pose>
+      <visual name="visual">
+        <geometry>
+          <box><size>0.1 0.1 2.0</size></box>
+        </geometry>
+        <material>
+          <ambient>1.0 0.35 0.0 1</ambient>
+          <diffuse>1.0 0.35 0.0 1</diffuse>
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box><size>0.1 0.1 2.0</size></box>
+        </geometry>
+      </collision>
+    </link>
+    <link name="top_bar">
+      <pose>0 0 1.05 0 0 0</pose>
+      <visual name="visual">
+        <geometry>
+          <box><size>0.1 2.2 0.1</size></box>
+        </geometry>
+        <material>
+          <ambient>1.0 0.35 0.0 1</ambient>
+          <diffuse>1.0 0.35 0.0 1</diffuse>
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box><size>0.1 2.2 0.1</size></box>
+        </geometry>
+      </collision>
+    </link>
+    <link name="bottom_bar">
+      <pose>0 0 -1.05 0 0 0</pose>
+      <visual name="visual">
+        <geometry>
+          <box><size>0.1 2.2 0.1</size></box>
+        </geometry>
+        <material>
+          <ambient>1.0 0.35 0.0 1</ambient>
+          <diffuse>1.0 0.35 0.0 1</diffuse>
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box><size>0.1 2.2 0.1</size></box>
+        </geometry>
+      </collision>
+    </link>
+    <link name="number_plate">
+      <pose>0.06 0 1.05 0 0 0</pose>
+      <visual name="visual">
+        <geometry>
+          <box><size>0.01 0.4 0.1</size></box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
